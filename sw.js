@@ -1,7 +1,7 @@
 // Educar en Caucasia · service worker
 // Cambie la versión cada vez que suba cambios para que los celulares descarguen lo nuevo.
-const CACHE='educar-caucasia-v1';
-const PRECACHE=["./", "index.html", "manifest.webmanifest", "og-image.jpg", "icons/icon-192.png", "icons/icon-512.png", "img/abuelo.jpg", "img/aseo.jpg", "img/autonomia.jpg", "img/barrer.jpg", "img/cocina.jpg", "img/curiosidad.jpg", "img/equilibrio.jpg", "img/fila.jpg", "img/juego.jpg", "img/limpio.jpg", "img/maestro.jpg", "img/orden.jpg", "img/pingpong.jpg", "img/respeto.jpg", "img/taller.jpg", "img/tren.jpg"];
+const CACHE='educar-caucasia-v2';
+const PRECACHE=["./", "index.html", "manifest.webmanifest", "og-image.jpg", "icon-192.png", "icon-512.png", "abuelo.jpg", "aseo.jpg", "autonomia.jpg", "barrer.jpg", "cocina.jpg", "curiosidad.jpg", "equilibrio.jpg", "fila.jpg", "juego.jpg", "limpio.jpg", "maestro.jpg", "orden.jpg", "pingpong.jpg", "respeto.jpg", "taller.jpg", "tren.jpg"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(PRECACHE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{
